@@ -7,6 +7,7 @@ KAFKA_LISTENER=${KAFKA_LISTENER:-"PLAINTEXT://0.0.0.0:"${KAFKA_ADVERTISE_PORT}}
 KAFKA_LOG_DIRS=${KAFKA_LOG_DIRS:-${SERVICE_HOME}"/logs"}
 KAFKA_LOG_FILE=${KAFKA_LOG_FILE:-${KAFKA_LOG_DIRS}"/kafkaServer.out"}
 KAFKA_LOG_RETENTION_HOURS=${KAFKA_LOG_RETENTION_HOURS:-"168"}
+KAFKA_LOG_RETENTION_BYTES=${KAFKA_LOG_RETENTION_BYTES:-"-1"}
 KAFKA_OFFSET_RETENTION_MINUTES=${KAFKA_OFFSET_RETENTION_MINUTES:-"1440"}
 KAFKA_NUM_PARTITIONS=${KAFKA_NUM_PARTITIONS:-"1"}
 KAFKA_ZK_PORT=${KAFKA_ZK_PORT:-"2181"}
@@ -59,7 +60,7 @@ default.replication.factor=${KAFKA_REPLICATION_FACTOR}
 #log.flush.interval.ms=1000
 ############################# Log Retention Policy #############################
 log.retention.hours=${KAFKA_LOG_RETENTION_HOURS}
-#log.retention.bytes=1073741824
+log.retention.bytes=${KAFKA_LOG_RETENTION_BYTES}
 log.segment.bytes=1073741824
 log.retention.check.interval.ms=300000
 log.cleaner.enable=true
